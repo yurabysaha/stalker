@@ -1,0 +1,16 @@
+<div class="user_profile">
+  <div class="user_char">
+    Ранг : <%= current_user.user_profile.rank %><br>
+    Репутация : <%= current_user.user_profile.reputation %><br>
+    <br>
+    Здоровья : <%= current_user.user_profile.health %><br>
+    Выносливость : <%= current_user.user_profile.endurance %><br>
+
+  </div>
+  <div class="user_char1">
+    Масса : <%= current_user.user_profile.weight %> кг<br>
+  </div>
+</div>
+<div class="services">
+  <%= link_to 'Инвентарь', root_path, method: 'get', class: 'services_button' %><br>
+</div>

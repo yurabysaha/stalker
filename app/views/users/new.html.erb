@@ -1,0 +1,47 @@
+<div class="container" id="container1">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title text-center">Регистрация</h3>
+        </div>
+        <div class="panel-body">
+          <%= form_for :user, url: users_path, method: :post do |f| %>
+              <div class="form-group">
+                <%= f.text_field :name, class: 'form-control input-sm', placeholder: 'Прозвище...' %>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :mail, class: 'form-control input-sm', placeholder: 'Електронна почта...' %>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <%= f.password_field :password, class: 'form-control input-sm', placeholder: 'Придумай пароль...' %>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <%= f.password_field :password_confirmation, class: 'form-control input-sm', placeholder: 'Повтори пароль...' %>
+                  </div>
+                </div>
+              </div>
+              <%= f.submit value: 'Регистрация', class: 'btn btn-block btn-success' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .centered-form {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  .centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+  }
+</style>
