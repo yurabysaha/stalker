@@ -1,0 +1,42 @@
+// Place all the styles related to the location controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.location_list {
+  margin-top: 50px;
+  margin-left: 15%;
+  float: left;
+  border: solid 1px green;
+  width: 200px;
+
+}
+.location_list_name {
+  text-align: center;
+  border: solid 1px green;
+  background-color: rgba(220, 220, 220, 0.8);
+}
+
+                             /*Контейнер поточної локації*/
+.current_location {
+  margin-top: 50px;
+  float: left;
+  width: 500px;
+}
+                               /*Таблиця поточної локації*/
+.current_location table {
+  width: 100%;
+}
+.current_location table td {
+  border: solid 1px black;
+  margin-left: 10px;
+  padding-left: 5px;
+  }
+
+
+
+.current_location_name {
+   text-align: center;
+   width: 500px;
+ /*  border: solid 1px green;*/
+   background-color: rgba(220, 220, 220, 0.8);
+ }

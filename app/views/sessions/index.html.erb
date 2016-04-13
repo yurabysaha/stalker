@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="user_profile">
   <div class="user_char">
     Ранг : <%= current_user.user_profile.rank %><br>
@@ -14,3 +15,4 @@
 <div class="services">
   <%= link_to 'Инвентарь', root_path, method: 'get', class: 'services_button' %><br>
 </div>
+<% end %>

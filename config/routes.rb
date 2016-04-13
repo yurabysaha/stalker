@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :users, :sessions, :game, :questions
-
+  resources :users, :sessions, :location, :factory
+  get 'change_location/:id' => 'location#change_location'
   get '/signup'  => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

@@ -9,6 +9,7 @@ class CreateUserProfiles < ActiveRecord::Migration
       t.integer :reputation, default: 0
       t.integer :money, default: 1000
       t.belongs_to :user, index: true
+      t.belongs_to :location, index: true, default: 1
 
       t.timestamps null: false
     end

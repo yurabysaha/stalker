@@ -11,20 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412133930) do
+ActiveRecord::Schema.define(version: 20160413141012) do
 
-  create_table "user_profiles", force: :cascade do |t|
-    t.integer  "health",     default: 100
-    t.integer  "endurance",  default: 50
-    t.integer  "weight",     default: 0
-    t.integer  "rank",       default: 0
-    t.integer  "reputation", default: 0
-    t.integer  "money",      default: 1000
-    t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "factories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "budget"
+    t.integer  "salary"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "factories", ["location_id"], name: "index_factories_on_location_id"
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.integer  "health",      default: 100
+    t.integer  "endurance",   default: 50
+    t.integer  "weight",      default: 0
+    t.integer  "rank",        default: 0
+    t.integer  "reputation",  default: 0
+    t.integer  "money",       default: 1000
+    t.integer  "user_id"
+    t.integer  "location_id", default: 1
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "user_profiles", ["location_id"], name: "index_user_profiles_on_location_id"
   add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
