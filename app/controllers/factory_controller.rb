@@ -18,6 +18,12 @@ class FactoryController < ApplicationController
       end
     end
 
+    def work
+      user = UserProfile.find_by_user_id(current_user.id)
+      user.update_attributes(work_on: params[:id], work_end: Time.now + 3600)
+      redirect_to '/'
+    end
+
     private
     def factory_params
       params.require(:factory).permit(:name, :description, :budget, :salary, :location_id)

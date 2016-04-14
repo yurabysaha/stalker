@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413141012) do
+ActiveRecord::Schema.define(version: 20160414133740) do
 
   create_table "factories", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160413141012) do
     t.integer  "location_id", default: 1
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "work_on"
+    t.datetime "work_end"
   end
 
   add_index "user_profiles", ["location_id"], name: "index_user_profiles_on_location_id"
