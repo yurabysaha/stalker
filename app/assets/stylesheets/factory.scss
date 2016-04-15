@@ -5,6 +5,7 @@
   margin-top: 50px;
   margin-left: 15%;
   width: 700px;
+  height: 422px;
   border: solid 1px green;
 }
 .factory_name {
@@ -13,11 +14,17 @@
 }
 .factory_description {
   text-align: center;
+  width: 435px;
+  float: left;
 }
 .factory_info {
   width: 300px;
   border: solid 1px green;
+  margin-top: 100px;
+}
+.factory_img {
+  float: right;
 }
 .factory_work {
-margin-top: 40px;
+  margin-top: 40px;
 }

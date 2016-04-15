@@ -20,13 +20,21 @@ class FactoryController < ApplicationController
 
     def work
       user = UserProfile.find_by_user_id(current_user.id)
-      user.update_attributes(work_on: params[:id], work_end: Time.now + 3600)
-      redirect_to '/'
+      factory = Factory.find(params[:id])
+
+      if user.work_end == nil or user.work_end < Time.now
+        user.update_attributes(work_on: params[:id], work_end: Time.now + 3600, money: user.money + factory.salary)
+        factory.update_attribute(:budget, factory.budget - factory.salary)
+        redirect_to '/'
+      else
+        redirect_to :back
+        flash[:danger] = "Вы уже работаете, подождите окончание текущей работы"
+      end
     end
 
     private
     def factory_params
-      params.require(:factory).permit(:name, :description, :budget, :salary, :location_id)
+      params.require(:factory).permit(:name, :description, :budget, :salary, :location_id, :avatar)
     end
 
 end

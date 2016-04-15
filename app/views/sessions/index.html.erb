@@ -6,13 +6,17 @@
     <br>
     Здоровья : <%= current_user.user_profile.health %><br>
     Выносливость : <%= current_user.user_profile.endurance %><br>
-
   </div>
   <div class="user_char1">
+    Деньги : <%= current_user.user_profile.money %> RU<br>
     Масса : <%= current_user.user_profile.weight %> кг<br>
+  </div>
+  <div class="work_on">
+    <%= render 'sessions/work_on' %>
   </div>
 </div>
 <div class="services">
   <%= link_to 'Инвентарь', root_path, method: 'get', class: 'services_button' %><br>
 </div>
+
 <% end %>

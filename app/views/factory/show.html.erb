@@ -5,12 +5,16 @@
   <div class="factory_description">
     <%= @factory.description %>
   </div>
+  <div class="factory_img">
+    <%= image_tag @factory.avatar.url %>
+  </div>
   <div class="factory_info">
    Бюджет :  <%= @factory.budget  %> RU <br>
    Зарплата :  <%= @factory.salary %> RU
   </div>
+
   <div class="factory_work">
-    Устроится на роботу  <%= link_to 'Работать', work_path(@factory.id), method: 'GET' %>
+    Устроится на роботу ->  <%= link_to 'Работать', work_path(@factory.id), method: 'GET' %>
   </div>
 
 </div>
