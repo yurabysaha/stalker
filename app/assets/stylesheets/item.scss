@@ -1,0 +1,34 @@
+// Place all the styles related to the item controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.items_conteiner {
+  margin-top: 50px;
+  margin-left: 15%;
+  width: 700px;
+}
+.item_name {
+  border-collapse: collapse;
+  border: 1px #5D413A solid;
+  BACKGROUND-COLOR: rgba(251, 255, 227, 0.71);
+  padding: 5px;
+}
+.item_picture {
+  border-collapse: collapse;
+  border: 1px #5D413A solid;
+  padding-top: 20px;
+}
+.item_description {
+  padding: 10px;
+}
+table {
+  white-space: normal;
+  line-height: normal;
+  font-weight: normal;
+  font-size: medium;
+  font-variant: normal;
+  font-style: normal;
+  color: -webkit-text;
+  text-align: start;
+  border: solid 1px rgba(128, 128, 128, 0.41);
+  margin-bottom: 15px;
+}

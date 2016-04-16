@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415134134) do
+ActiveRecord::Schema.define(version: 20160416055643) do
 
   create_table "factories", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(version: 20160415134134) do
   end
 
   add_index "factories", ["location_id"], name: "index_factories_on_location_id"
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "price"
+    t.string   "body_type"
+    t.integer  "min_lvl"
+    t.integer  "strength"
+    t.integer  "amount"
+    t.integer  "factory_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  add_index "items", ["factory_id"], name: "index_items_on_factory_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"

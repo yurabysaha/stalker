@@ -14,6 +14,7 @@
   </div>
 
   <div class="factory_work">
+    Просмотреть товар -> <%= link_to 'Торговать',  factory_items_path(@factory.id), method: 'GET' %><br>
     Устроится на роботу ->  <%= link_to 'Работать', work_path(@factory.id), method: 'GET' %>
   </div>
 
