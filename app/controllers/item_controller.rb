@@ -1,7 +1,7 @@
 class ItemController < ApplicationController
 
   def factory_items
-    @items = Item.where(params[:id])
+    @items = Item.where(factory_id: params[:id])
   end
 
   def new
