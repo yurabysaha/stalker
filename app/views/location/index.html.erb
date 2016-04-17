@@ -1,14 +1,23 @@
 <div class="location_list">
-  <div class="location_list_name">
-    Локации
-  </div>
-<table>
-  <% @locations.each do |l| %>
-  <tr>
-    <td> <%= link_to l.name, location_path(l.id), method: 'get' %>  </td>
-  </tr>
+
+  <%= link_to location_path(1), method: 'get' do %>
+    <div class="kordon">
+      <div class="text">
+        Кордон
+      </div>
+    </div>
   <%end %>
-</table>
+
+  <%= link_to location_path(2), method: 'get' do %>
+      <div class="svalka">
+      </div>
+  <%end %>
+
+  <%= link_to location_path(3), method: 'get' do %>
+      <div class="ahroprom">
+      </div>
+  <%end %>
+
 </div>
 <div class="current_location">
   <div class="current_location_name">

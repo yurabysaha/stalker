@@ -4,19 +4,70 @@
 
 .location_list {
   margin-top: 50px;
-  margin-left: 15%;
+  margin-left: 10%;
   float: left;
   border: solid 1px green;
-  width: 200px;
+  width: 308px;
+  height: 504px;
+  background-image: url('karta.jpg');
 
 }
-.location_list_name {
+.kordon {
+  position: fixed;
+  width: 90px;
+  height: 80px;
+  margin-top: 423px;
+  margin-left: 105px;
+  border: solid 1px rgba(253, 255, 240, 0.46);
+}
+.kordon:hover .text {
+  border: solid 1px #fdfff0;
+  box-shadow: 0 0 15px rgb(255, 252, 207);
+  display: block;
+}
+.text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
   text-align: center;
-  border: solid 1px green;
-  background-color: rgba(220, 220, 220, 0.8);
+  text-decoration-color: black;
+  background: rgba(255, 255, 255, 0.37);
+  padding: 5px;
+  display: none;
 }
 
-                             /*Контейнер поточної локації*/
+.svalka {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  margin-top: 330px;
+  margin-left: 210px;
+  border: solid 1px rgba(253, 255, 240, 0.46);
+}
+.svalka:hover {
+  border: solid 1px #fdfff0;
+  box-shadow: 0 0 15px rgb(255, 252, 207);
+}
+
+.ahroprom {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  margin-top: 340px;
+  margin-left: 15px;
+  border: solid 1px rgba(253, 255, 240, 0.46);
+}
+.ahroprom:hover {
+  border: solid 1px #fdfff0;
+  box-shadow: 0 0 15px rgb(255, 252, 207);
+}
+
+
+
+
+  /*Контейнер поточної локації*/
 .current_location {
   margin-top: 50px;
   float: left;
