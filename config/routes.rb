@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users, :sessions, :location, :factory, :item, :user_item
+  resources :users, :user_profile, :sessions, :location, :factory, :item, :user_item
 
   get '/work/:id' => 'factory#work', as: 'work'
   get 'factory_items/:id' => 'item#factory_items', as: 'factory_items'
