@@ -20,6 +20,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       @user_profile = UserProfile.new(:user_id => current_user.id)
       @user_profile.save
+      @user_body = UserBody.new(:user_id => current_user.id)
+      @user_body.save
       redirect_to '/'
     else
       redirect_to '/signup'

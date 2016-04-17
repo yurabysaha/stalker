@@ -1,20 +1,16 @@
 <div class="inv_bg">
   <table id="inv_table">
     <tr>
-      <td>
-      </td>
+      <td> <% if @user_head != nil %><%= image_tag @user_head.avatar %><% end %> </td>
     </tr>
     <tr>
-      <td>
-      </td>
+      <td> <% if @user_body != nil %><%= image_tag @user_body.avatar %><% end %> </td>
     </tr>
     <tr>
-      <td>
-      </td>
+      <td> <% if @user_hand != nil %><%= image_tag @user_hand.avatar %><% end %> </td>
     </tr>
     <tr>
-      <td>
-      </td>
+      <td> <% if @user_leg != nil %><%= image_tag @user_leg.avatar %><% end %> </td>
     </tr>
   </table>
 
@@ -24,7 +20,7 @@
 
 <div class="inv_items_conteiner">
   <% @items.each do |i| %>
-      <table>
+      <table class="inv_table_item">
         <tr>
           <td colspan="2" class="inv_item_name"> <b> <%= i.name %></b> </td>
         </tr>
@@ -40,6 +36,7 @@
             Описание : <br>
             <%= i.description %> <br>
             <br>
+            <%= link_to 'Надеть', add_item_path(i.id) %>
           </td>
 
 

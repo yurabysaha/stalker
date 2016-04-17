@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/work/:id' => 'factory#work', as: 'work'
   get 'factory_items/:id' => 'item#factory_items', as: 'factory_items'
   get '/buy/:id' => 'user_item#buy', as: 'buy'
+  get '/add_item/:id' => 'user_body#add_item', as: 'add_item'
 
   get '/signup'  => 'users#new'
   get '/login' => 'sessions#new'

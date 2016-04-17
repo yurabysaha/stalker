@@ -22,6 +22,7 @@
   border: solid 1px rgba(248, 248, 255, 0.21);
   color: #999999;
   border-collapse: collapse;
+  height: 99px;
  }
 
 
@@ -50,7 +51,7 @@
   padding: 10px;
   color: whitesmoke;
 }
-table {
+.inv_table_item {
   width: 600px;
   white-space: normal;
   line-height: normal;

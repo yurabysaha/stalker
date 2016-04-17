@@ -2,6 +2,30 @@ class UserItemController < ApplicationController
 
   def index
     @items = UserItem.where(user_id: current_user.id)
+
+    @user =  UserBody.find_by_user_id(current_user.id)
+      if @user.head != nil
+        @user_head = UserItem.find(current_user.user_body.head)
+      end
+
+      if @user.body != nil
+        @user_head = UserItem.find(current_user.user_body.head)
+      end
+      if @user.hand != nil
+        @user_hand = UserItem.find(current_user.user_body.hand)
+      end
+    if @user.leg != nil
+      @user_leg = UserItem.find(current_user.user_body.leg)
+    end
+
+=begin
+    @user_head = UserItem.find(current_user.user_body.head)
+    @user_body = UserItem.find(current_user.user_body.body)
+    @user_hand = UserItem.find(current_user.user_body.hand)
+    @user_leg = UserItem.find(current_user.user_body.leg)
+=end
+
+
   end
 
   def buy

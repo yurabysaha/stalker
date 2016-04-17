@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   has_one :user_profile
   has_many :user_items
+  has_one :user_body
+
+
 
 
 end
