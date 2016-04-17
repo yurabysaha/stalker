@@ -1,0 +1,25 @@
+<div class="items_conteiner">
+  <% @items.each do |i| %>
+      <table>
+        <tr>
+          <td colspan="2" class="item_name"> <b> <%= i.name %></b> </td>
+        </tr>
+        <tr>
+          <td width="110" class="item_picture" valign="top" align="center"><%= image_tag i.avatar %></td>
+          <td valign="top" class="item_description">
+            <br>
+            Минимальний ранг : <%= i.min_lvl %> <br>
+
+            Прочность : <%= i.strength %> <br>
+            <br>
+            <br>
+            Описание : <br>
+            <%= i.description %> <br>
+            <br>
+          </td>
+
+
+        </tr>
+      </table>
+  <% end %>
+</div>

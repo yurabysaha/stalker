@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_one :user_profile
+  has_many :user_items
 
 
 end
