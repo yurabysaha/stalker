@@ -21,8 +21,12 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     margin-right: 10%;
-    margin-left: 10%;
-
+    margin-left: 14%;
+    color: whitesmoke;
+    background-image: url('bg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 .flash {
     position: absolute;

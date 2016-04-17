@@ -5,12 +5,17 @@
   margin-top: 50px;
   margin-left: 15%;
   width: 700px;
+  border: solid 1px rgba(248, 248, 255, 0.58);
+  color: #999999;
+  border-collapse: collapse;
 }
 .item_name {
   border-collapse: collapse;
   border: 1px #5D413A solid;
-  BACKGROUND-COLOR: rgba(251, 255, 227, 0.71);
+  BACKGROUND-COLOR: rgba(56, 60, 55, 0.71);
   padding: 5px;
+  color: whitesmoke;
+
 }
 .item_picture {
   border-collapse: collapse;
@@ -19,16 +24,19 @@
 }
 .item_description {
   padding: 10px;
+  color: whitesmoke;
 }
 table {
+  width: 700px;
   white-space: normal;
   line-height: normal;
   font-weight: normal;
   font-size: medium;
   font-variant: normal;
   font-style: normal;
-  color: -webkit-text;
   text-align: start;
-  border: solid 1px rgba(128, 128, 128, 0.41);
   margin-bottom: 15px;
+  border: solid 1px rgba(248, 248, 255, 0.58);
+  color: #999999;
+  border-collapse: collapse;
 }
