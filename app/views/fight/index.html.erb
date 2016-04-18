@@ -1,0 +1,18 @@
+<div class="arena_conteiner">
+  <div class="arena_button"> <%= link_to 'Cоздать', fight_index_path(user_id: current_user.id), method: 'POST', class: 'mainbar_button' %>  </div>
+  <table class="arena_table">
+    <tr>
+      <td> <b>Сталкер 1</b> </td>
+      <td> <b></b> </td>
+      <td> <b>Сталкер 2</b> </td>
+    </tr>
+     <% @fights.each do |f| %>
+        <tr>
+          <td> <%= f.user.name %>[<%= f.user.user_profile.rank %>]</td>
+          <td> <b>VS</b> </td>
+          <td> <% if f.opponent != nil%> <%= f.opponent.name %>[<%= f.opponent.user_profile.rank %>] <% else %> <% if f.user.id == current_user.id %> ждем... <% else %> <%= link_to 'Вступить', fight_path(id: f.id, opponent: current_user.id), method: 'PUT' %> <% end %><% end %> </td>
+        </tr>
+
+  <% end %>
+  </table>
+</div>

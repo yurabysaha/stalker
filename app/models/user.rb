@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   has_many :user_items
   has_one :user_body
 
-
+  has_one :fight
+  has_one :opponent, :through => :fight
 
 
 end

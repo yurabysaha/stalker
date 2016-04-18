@@ -22,8 +22,6 @@ class ItemController < ApplicationController
   end
 
 
-
-
   private
   def item_params
     params.require(:item).permit(:name, :description, :price, :body_type, :min_lvl, :strength, :amount, :factory_id, :avatar)

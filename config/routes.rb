@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :users, :user_profile, :sessions, :location, :factory, :item, :user_item
+  resources :users, :user_profile, :sessions, :location, :factory, :item, :user_item, :fight
 
   get '/work/:id' => 'factory#work', as: 'work'
   get 'factory_items/:id' => 'item#factory_items', as: 'factory_items'
   get '/buy/:id' => 'user_item#buy', as: 'buy'
   get '/add_item/:id' => 'user_body#add_item', as: 'add_item'
+  get '/down_item' => 'user_body#down_item', as: 'down_item'
 
   get '/signup'  => 'users#new'
   get '/login' => 'sessions#new'
