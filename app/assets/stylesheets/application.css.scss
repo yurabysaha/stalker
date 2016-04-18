@@ -29,9 +29,14 @@ body {
     background-position: center top;
 }
 .flash {
-    position: absolute;
-    right: 46%;
-    margin-top: 70px;
+    position: fixed;
+    top: 52px;
+    right: 5px;
+    width: auto;
+    height:40px;
+    float: left;
+    margin-top: 0;
+
 }
 .mainbar {
   margin-left: 15%;
