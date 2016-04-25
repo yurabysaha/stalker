@@ -1,9 +1,29 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_name {
+  width: 750px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-style: oblique;
+  font-weight: bold;
+}
+.user_name a {
+  color: whitesmoke;
+}
+.user_name a:hover {
+  text-decoration: none;
+  color: white;
+}
+.user_name a:active {
+  text-decoration: none;
+  color: white;
+}
+
 
 .user_profile {
-  margin-top: 50px;
   float: right;
   position: fixed;
   width: 750px;
@@ -34,7 +54,6 @@
 }
 
 .services {
-  margin-top: 50px;
   float: right;
   position: fixed;
   height: 410px;

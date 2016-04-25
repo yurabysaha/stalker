@@ -1,4 +1,5 @@
 class FactoryController < ApplicationController
+  before_action :require_user, :on_fight, only: [:index, :new, :show, :work]
     def index
 
     end

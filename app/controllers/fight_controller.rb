@@ -1,10 +1,11 @@
 class FightController < ApplicationController
+  before_action :require_user, only: [:index, :new, :create, :update, :destroy, :battle, :on_fight]
+  before_action :on_fight, only: [:index]
   def index
     @fights = Fight.all
   end
 
   def new
-
   end
 =begin
 Метод create. Тут виконується ф-ція Создать. Спочатку перевіряємо чи Юзер немає активних заявок
@@ -20,8 +21,11 @@ class FightController < ApplicationController
        flash[:danger] = "Произошла ошибка, бой не создан"
       end
     else
-      redirect_to :back
-      flash[:danger] = "Cтрелка уже назначена"
+        destroy
+        redirect_to :back
+      #redirect_to :back
+      #flash[:danger] = "Cтрелка уже назначена"
+
     end
   end
 
@@ -37,15 +41,104 @@ ID Юзера в опоненти
       @fight = Fight.find(params[:id])
       @fight.opponent_id = params[:opponent]
       @fight.save
-      redirect_to :back
+    on_battle
+    start_fight
+    redirect_to battle_path
   end
 
   def destroy
     Fight.find_by_user_id(current_user.id).destroy
   end
 
+  def battle
+    @fight = Fight.find(params[:id])
+    @player1 = @fight.user
+    @player2 = @fight.opponent
+      if params[:battle] == nil
+      else
+        if current_user == @player1
+            pl1 = params.require(:battle).permit(:hit, :move)
+            @fight.player1_hit = pl1[:hit]
+            @fight.player1_move = pl1[:move]
+            @fight.who_move = @player2.id
+        else
+            pl2 = params.require(:battle).permit(:hit, :move)
+            @fight.player2_hit = pl2[:hit]
+            @fight.player2_move = pl2[:move]
+            @fight.who_move = @player1.id
+        end
+        @fight.save
+
+      if raund_end == true
+        who_win
+      end
+      end
+    render 'battle'
+  end
+
+
   private
+
+  def start_fight
+    @fight = @fight
+    @player1 = @fight.user
+    @player2 = @fight.opponent
+    @fight.player1_health = @fight.user.user_profile.health
+    @fight.player2_health = @fight.opponent.user_profile.health
+    @fight.who_move = @fight.user.id
+    @fight.save
+  end
+
+ def raund_end
+   if @fight.player1_hit and @fight.player2_hit != nil
+      true
+   else
+     false
+   end
+ end
+
+  def who_win
+    if @fight.player1_hit == @fight.player2_move
+       @fight.player2_health = @fight.player2_health - 10
+       talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player1.name + ' метким вистрелом в грудь ранил противника <br>'
+       @fight.description = @fight.description + talk
+    end
+    if @fight.player2_hit == @fight.player1_move
+       @fight.player1_health = @fight.player1_health - 10
+       talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player2.name + ' метким вистрелом в грудь ранил противника <br>'
+       @fight.description = @fight.description + talk
+    end
+       @fight.raund = @fight.raund + 1
+       @fight.player1_hit, @fight.player2_hit, @fight.player1_move, @fight.player2_move = nil
+    game_end
+    @fight.save
+  end
+
+
+def on_battle
+    player1 = UserProfile.find(@fight.user_id)
+    player1.update_attribute(:on_fight, @fight.id)
+    player2 = UserProfile.find(@fight.opponent_id)
+    player2.update_attribute(:on_fight, @fight.id)
+end
+  def off_battle
+    player1 = UserProfile.find(@fight.user_id)
+    player1.update_attribute(:on_fight, nil)
+    player2 = UserProfile.find(@fight.opponent_id)
+    player2.update_attribute(:on_fight, nil)
+  end
+  def game_end
+    if @fight.player1_health <= 0
+        @fight.win = @player2.id
+        off_battle
+    end
+    if @fight.player2_health <= 0
+        @fight.win = @player1.id
+        off_battle
+    end
+  end
+
   def fight_params
-    params.permit(:user_id, :opponent_id, :who_move)
+    params.permit(:user_id, :opponent_id)
   end
 end

@@ -1,6 +1,7 @@
+<div class="container_location">
 <div class="location_list">
 
-  <%= link_to location_path(1), method: 'get' do %>
+  <%= link_to location_path(1), method: 'get', remote: true do %>
     <div class="kordon">
       <div class="text">
         Кордон
@@ -8,12 +9,12 @@
     </div>
   <%end %>
 
-  <%= link_to location_path(2), method: 'get' do %>
+  <%= link_to location_path(2), method: 'get', remote: true do %>
       <div class="svalka">
       </div>
   <%end %>
 
-  <%= link_to location_path(3), method: 'get' do %>
+  <%= link_to location_path(3), method: 'get', remote: true do %>
       <div class="ahroprom">
       </div>
   <%end %>
@@ -39,4 +40,5 @@
         </tr>
     <%end %>
   </table>
+</div>
 </div>

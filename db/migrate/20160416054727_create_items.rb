@@ -9,6 +9,8 @@ class CreateItems < ActiveRecord::Migration
       t.integer :min_lvl
       t.integer :strength
       t.integer :amount
+      t.integer :add_health
+      t.integer :add_damage
       t.belongs_to :factory, index: true
 
       t.timestamps null: false

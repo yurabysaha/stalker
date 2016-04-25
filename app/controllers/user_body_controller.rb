@@ -1,4 +1,5 @@
 class UserBodyController < ApplicationController
+  before_action :require_user, :on_fight, only: [:add_item, :down_item]
 
 =begin
   add_item. Одягнути ітем на Юзера.Отримуємо ІD Item який хочемо надіти.

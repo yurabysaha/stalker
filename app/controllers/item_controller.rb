@@ -1,4 +1,5 @@
 class ItemController < ApplicationController
+  before_action :require_user, :on_fight, only: [:factory_items, :new, :show, :create]
 
   def factory_items
     @items = Item.where(factory_id: params[:id])

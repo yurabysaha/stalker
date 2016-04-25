@@ -1,0 +1,114 @@
+<table class="battle_table">
+  <tr>
+    <td>
+      <%= @player1.name %>
+  </td>
+    <td>
+      <div id="timer">Обновление через 20c</div>
+      <script>
+        var timeLeft = 20;
+        var element = document.getElementById('timer');
+
+        var timer = setInterval(countdown, 1000);
+
+        function countdown() {
+          if (timeLeft == 0) {
+            clearTimeout(timer);
+            displayNumbers();
+          } else {
+            element.innerHTML = 'Обновление через ' + timeLeft + 'c';
+            timeLeft--;
+          }
+        }
+        function displayNumbers() {
+          window.location.assign(document.URL);
+        }
+      </script>
+    </td>
+    <td>
+      <%= @player2.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<div class="player1">
+  <div class="inv_bg">
+
+    <table id="inv_table">
+      <tr>
+        <td> <% if @player1.user_body.head != nil %> <%= image_tag avatar(@player1.user_body.head) %><% end %>  </td>
+      </tr>
+      <tr>
+        <td> <% if @player1.user_body.body != nil %> <%= image_tag avatar(@player1.user_body.body) %><% end %>  </td>
+      </tr>
+      <tr>
+        <td> <% if @player1.user_body.hand != nil %> <%= image_tag avatar(@player1.user_body.hand) %><% end %>  </td>
+      </tr>
+      <tr>
+        <td> <% if @player1.user_body.leg != nil %> <%= image_tag avatar(@player1.user_body.leg) %><% end %>  </td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+    </td>
+    <td>
+      <% if @fight.win == nil %>
+<h2 class="raund animated zoomIn"> Раунд : <%= @fight.raund %>   </h2>
+      <% if @fight.who_move == current_user.id %>
+
+
+  <%= form_for('battle', method: 'post') do |f|  %>
+     Стрелять :<br> <label><%= f.select :hit, [['вправо','right'],['прямо','middle'],['влево','left']] %></label><br>
+     Уйти :   <br>  <label><%= f.select :move, [['вправо','right'],['прямо','middle'],['влево','left']] %></label><br>
+                    <%= f.submit 'Подтвердить', class: 'submit' %>
+  <% end %>
+      <% else %>
+          <div id="xod">Ходит соперник</div>
+      <% end %>
+      <% else %>
+      <% if @fight.win == current_user.id %>
+              <div id="xod"> Ты победил соперника!</div>
+          <% else %>
+              <div id="xod">Ты проиграл сопернику!</div>
+          <% end %>
+      <% end %>
+    </td>
+    <td>
+<div class="player2">
+  <div class="inv_bg">
+    <table id="inv_table">
+      <tr>
+        <td> <% if @player2.user_body.head != nil %> <%= image_tag avatar(@player2.user_body.head) %><% end %>  </td>
+      </tr>
+      <tr>
+        <td> <% if @player2.user_body.body != nil %> <%= image_tag avatar(@player2.user_body.body) %><% end %>  </td>
+      </tr>
+      <tr>
+        <td> <% if @player2.user_body.hand != nil %> <%= image_tag avatar(@player2.user_body.hand) %><% end %>  </td>
+      </tr>
+      <tr>
+        <td> <% if @player2.user_body.leg != nil %> <%= image_tag avatar(@player2.user_body.leg) %><% end %>  </td>
+      </tr>
+    </table>
+  </div>
+</div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Здоровя : <%= @fight.player1_health %>
+    </td>
+    <td>
+    </td>
+    <td>
+      Здоровя : <%= @fight.player2_health %>
+    </td>
+  </tr>
+</table>
+
+<div class="action_description">
+ <% @fight.description.split('<br>').each do |d| %>
+   <%= d  %><br>
+  <% end %>
+</div>

@@ -32,9 +32,18 @@ ActiveRecord::Schema.define(version: 20160418075810) do
   create_table "fights", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "opponent_id"
-    t.integer  "who_move"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "who_move",       default: 0
+    t.integer  "player1_health"
+    t.integer  "player2_health"
+    t.string   "player1_hit"
+    t.string   "player2_hit"
+    t.string   "player1_move"
+    t.string   "player2_move"
+    t.text     "description",    default: "<br>"
+    t.integer  "raund",          default: 1
+    t.integer  "win"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -45,6 +54,8 @@ ActiveRecord::Schema.define(version: 20160418075810) do
     t.integer  "min_lvl"
     t.integer  "strength"
     t.integer  "amount"
+    t.integer  "add_health"
+    t.integer  "add_damage"
     t.integer  "factory_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -81,6 +92,8 @@ ActiveRecord::Schema.define(version: 20160418075810) do
     t.string   "body_type"
     t.integer  "min_lvl"
     t.integer  "strength"
+    t.integer  "add_health"
+    t.integer  "add_damage"
     t.string   "avatar"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
@@ -96,12 +109,13 @@ ActiveRecord::Schema.define(version: 20160418075810) do
     t.integer  "rank",        default: 0
     t.integer  "reputation",  default: 0
     t.integer  "money",       default: 1000
+    t.integer  "work_on"
+    t.datetime "work_end"
+    t.integer  "on_fight"
     t.integer  "user_id"
     t.integer  "location_id", default: 1
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "work_on"
-    t.datetime "work_end"
   end
 
   add_index "user_profiles", ["location_id"], name: "index_user_profiles_on_location_id"

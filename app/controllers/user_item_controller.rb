@@ -1,4 +1,5 @@
 class UserItemController < ApplicationController
+  before_action :require_user, :on_fight, only: [:index, :buy]
 
   def index
     @items = UserItem.where(user_id: current_user.id)
@@ -30,7 +31,7 @@ class UserItemController < ApplicationController
 
   def buy
     @item = Item.find(params[:id])
-     if current_user.user_profile.money > @item.price
+     if current_user.user_profile.money >= @item.price
        money_update
       @user_item = UserItem.new()
       copy_params
@@ -46,7 +47,7 @@ class UserItemController < ApplicationController
   end
 
 
-
+ private
 
   def copy_params
     @user_item.name = @item.name
@@ -54,6 +55,8 @@ class UserItemController < ApplicationController
     @user_item.body_type = @item.body_type
     @user_item.min_lvl = @item.min_lvl
     @user_item.strength = @item.strength
+    @user_item.add_health = @item.add_health
+    @user_item.add_damage = @item.add_damage
     @user_item.avatar = @item.avatar.url
     @user_item.user_id = current_user.id
   end

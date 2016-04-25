@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/buy/:id' => 'user_item#buy', as: 'buy'
   get '/add_item/:id' => 'user_body#add_item', as: 'add_item'
   get '/down_item' => 'user_body#down_item', as: 'down_item'
+  get '/fight/:id/battle' => 'fight#battle', as: 'battle'
+  post "/fight/:id/battle" => 'fight#battle'
 
   get '/signup'  => 'users#new'
   get '/login' => 'sessions#new'

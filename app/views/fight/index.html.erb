@@ -1,5 +1,6 @@
 <div class="arena_conteiner">
-  <div class="arena_button"> <%= link_to 'Cоздать', fight_index_path(user_id: current_user.id), method: 'POST', class: 'mainbar_button' %>  </div>
+  <div id="timer"></div>
+  <div class="arena_button"><%= link_to 'Cоздать', fight_index_path(user_id: current_user.id), method: 'POST', class: 'mainbar_button' %>  </div>
   <table class="arena_table">
     <tr>
       <td> <b>Сталкер 1</b> </td>
@@ -16,3 +17,24 @@
   <% end %>
   </table>
 </div>
+
+<script>
+  var timeLeft = 20;
+  var elem = document.getElementById('timer');
+
+  var timerId = setInterval(countdown, 1000);
+
+  function countdown() {
+    if (timeLeft == 0) {
+      clearTimeout(timerId);
+      displayNumbers();
+    } else {
+      elem.innerHTML ='Обновление через : ' + timeLeft;
+      timeLeft--;
+    }
+  }
+  function displayNumbers() {
+    location.reload();
+  }
+
+</script>

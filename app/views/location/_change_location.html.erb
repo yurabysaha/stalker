@@ -1,0 +1,22 @@
+<div class="change_location">
+  <div id="timer">До перехода осталось 20 секунд </div>
+  <script>
+    var timeLeft = 19;
+    var elem = document.getElementById('timer');
+
+    var timerId = setInterval(countdown, 1000);
+
+    function countdown() {
+      if (timeLeft == 0) {
+        clearTimeout(timerId);
+        displayNumbers();
+      } else {
+        elem.innerHTML = 'До перехода осталось ' + timeLeft + ' секунд';
+        timeLeft--;
+      }
+    }
+    function displayNumbers() {
+      location.reload();
+    }
+  </script>
+</div>
