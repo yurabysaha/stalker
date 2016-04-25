@@ -10,11 +10,16 @@
        Цена : <%= i.price %> RU <br>
        <br>
        Минимальний ранг : <%= i.min_lvl %> <br>
-
        Прочность : <%= i.strength %> <br>
        <br>
+       <% if i.add_health != nil %>
+       Броня : +<%= i.add_health %>
+       <% end %>
+       <% if i.add_damage != nil %>
+       Урон : +<%= i.add_damage %>
+       <% end %>
        <br>
-       Доступное количество : <%= i.amount %> <br><br>
+       Доступное количество : <%= i.amount %> <br>
        Описание : <br>
        <%= i.description %> <br>
        <br>
