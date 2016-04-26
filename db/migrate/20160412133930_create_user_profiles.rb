@@ -3,6 +3,7 @@ class CreateUserProfiles < ActiveRecord::Migration
     create_table :user_profiles do |t|
 
       t.integer     :health, default: 100
+      t.integer     :damage, default: 10
       t.integer     :endurance, default: 50
       t.integer     :weight, default: 0
       t.integer     :rank, default: 0

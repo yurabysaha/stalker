@@ -12,12 +12,13 @@
        Минимальний ранг : <%= i.min_lvl %> <br>
        Прочность : <%= i.strength %> <br>
        <br>
-       <% if i.add_health != nil %>
-       Броня : +<%= i.add_health %>
+       <% if i.add_health != 0 %>
+       Броня : + <%= i.add_health %>
        <% end %>
-       <% if i.add_damage != nil %>
-       Урон : +<%= i.add_damage %>
+       <% if i.add_damage != 0 %>
+       Урон : + <%= i.add_damage %>
        <% end %>
+       <br>
        <br>
        Доступное количество : <%= i.amount %> <br>
        Описание : <br>

@@ -10,12 +10,14 @@
       <td> <% if @user_hand != nil %><%= link_to down_item_path(:type => 'hand') do %><%= image_tag @user_hand.avatar %><% end %><% end %> </td>
     </tr>
     <tr>
-      <td> <% if @user_leg != nil %><%= link_to down_item_path(:type => 'leg') do %><%= image_tag @user_leg.avatar %><% end %><% end %> </td>
+      <td> <% if @user_leg != nil %><%= link_to down_item_path(:type => 'leg', :item => @user_leg) do %><%= image_tag @user_leg.avatar %><% end %><% end %> </td>
     </tr>
   </table>
-
+  <div class="charach">
+    Здоровья : <%= current_user.user_profile.health %><br>
+    Урон :    <%= current_user.user_profile.damage %><br>
+  </div>
 </div>
-
 
 
 <div class="inv_items_conteiner">
@@ -32,14 +34,19 @@
 
             Прочность : <%= i.strength %> <br>
             <br>
+            <% if i.add_health != 0 %>
+                Броня : + <%= i.add_health %>
+            <% end %>
+            <% if i.add_damage != 0 %>
+                Урон : + <%= i.add_damage %>
+            <% end %>
+            <br>
             <br>
             Описание : <br>
             <%= i.description %> <br>
             <br>
             <%= link_to 'Надеть', add_item_path(i.id) %>
           </td>
-
-
         </tr>
       </table>
   <% end %>

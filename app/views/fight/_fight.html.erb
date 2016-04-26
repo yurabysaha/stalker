@@ -97,18 +97,23 @@
   </tr>
   <tr>
     <td>
-      Здоровя : <%= @fight.player1_health %>
+      Здоровя : <%= @fight.player1_health %><br>
+      Урон :    <%= @fight.user.user_profile.damage %><br>
     </td>
     <td>
     </td>
     <td>
-      Здоровя : <%= @fight.player2_health %>
+      Здоровя : <%= @fight.player2_health %><br>
+      Урон :    <%= @fight.opponent.user_profile.damage %><br>
     </td>
   </tr>
 </table>
 
 <div class="action_description">
- <% @fight.description.split('<br>').each do |d| %>
+ <% @fight.description.split('<br>').reverse.each do |d| %>
    <%= d  %><br>
   <% end %>
+</div>
+<div class="options">
+  <%=link_to 'Убежать', end_path %>
 </div>

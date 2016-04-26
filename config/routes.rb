@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/down_item' => 'user_body#down_item', as: 'down_item'
   get '/fight/:id/battle' => 'fight#battle', as: 'battle'
   post "/fight/:id/battle" => 'fight#battle'
+  get '/fight/:id/end' => 'fight#end', as: 'end'
 
   get '/signup'  => 'users#new'
   get '/login' => 'sessions#new'

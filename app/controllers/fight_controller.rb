@@ -2,7 +2,7 @@ class FightController < ApplicationController
   before_action :require_user, only: [:index, :new, :create, :update, :destroy, :battle, :on_fight]
   before_action :on_fight, only: [:index]
   def index
-    @fights = Fight.all
+    @fights = Fight.all.order(created_at: :desc)
   end
 
   def new
@@ -76,6 +76,18 @@ ID Юзера в опоненти
     render 'battle'
   end
 
+def end
+  @fight = Fight.find(params[:id])
+  if @fight.user == current_user
+    @fight.win = @fight.opponent.id
+  else
+    @fight.win = @fight.user.id
+  end
+  off_battle
+  @fight.save
+  redirect_to '/'
+  flash[:danger] = "Вы убежали с боя"
+end
 
   private
 
@@ -99,13 +111,13 @@ ID Юзера в опоненти
 
   def who_win
     if @fight.player1_hit == @fight.player2_move
-       @fight.player2_health = @fight.player2_health - 10
-       talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player1.name + ' метким вистрелом в грудь ранил противника <br>'
+       @fight.player2_health = @fight.player2_health - @fight.user.user_profile.damage
+       talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player1.name + ' метким вистрелом в грудь ранил противника и нанес ' + @fight.user.user_profile.damage.to_s + ' урона <br>'
        @fight.description = @fight.description + talk
     end
     if @fight.player2_hit == @fight.player1_move
-       @fight.player1_health = @fight.player1_health - 10
-       talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player2.name + ' метким вистрелом в грудь ранил противника <br>'
+       @fight.player1_health = @fight.player1_health - @fight.opponent.user_profile.damage
+       talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player2.name + ' метким вистрелом в грудь ранил противника и нанес ' + @fight.opponent.user_profile.damage.to_s + ' урона <br>'
        @fight.description = @fight.description + talk
     end
        @fight.raund = @fight.raund + 1

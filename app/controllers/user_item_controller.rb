@@ -10,7 +10,7 @@ class UserItemController < ApplicationController
       end
 
       if @user.body != nil
-        @user_head = UserItem.find(current_user.user_body.head)
+        @user_body = UserItem.find(current_user.user_body.body)
       end
       if @user.hand != nil
         @user_hand = UserItem.find(current_user.user_body.hand)
@@ -36,7 +36,8 @@ class UserItemController < ApplicationController
       @user_item = UserItem.new()
       copy_params
       if @user_item.save
-        redirect_to '/'
+        redirect_to :back
+        flash[:success] = "Предмет появится у тебя в инвентаре"
       else
         redirect_to '/signup'
       end

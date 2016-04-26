@@ -21,6 +21,7 @@ class UserBodyController < ApplicationController
       when "leg"
         @user_body.leg = @item.id
     end
+    update_user(@item.add_health, @item.add_damage, 'plus')
     @user_body.save
     redirect_to :back
   end
@@ -30,18 +31,38 @@ down_item. Шукаємо тіло Юзера. По параметру диви�
 =end
   def down_item
     @user_body = UserBody.find_by_user_id(current_user.id)
+
     case params[:type]
       when "head"
+        @item = UserItem.where(id: current_user.user_body.head).first
         @user_body.head = nil
       when "body"
+        @item = UserItem.where(id: current_user.user_body.body).first
         @user_body.body = nil
       when "hand"
+        @item = UserItem.where(id: current_user.user_body.hand).first
         @user_body.hand = nil
       when "leg"
+        @item = UserItem.where(id: current_user.user_body.leg).first
         @user_body.leg = nil
     end
+    update_user(@item.add_health, @item.add_damage, 'minus')
     @user_body.save
     redirect_to :back
   end
 
+private
+
+  def update_user(health, damage, action)
+    user = UserProfile.where(user_id: current_user.id).first
+    case action
+      when 'plus'
+        user.health = user.health + health
+        user.damage = user.damage + damage
+      when 'minus'
+        user.health = user.health - health
+        user.damage = user.damage - damage
+  end
+    user.save
+  end
 end

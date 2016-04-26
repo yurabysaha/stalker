@@ -13,6 +13,7 @@
   color: #999999;
   border-collapse: collapse;
 }
+
 #inv_table {
   width: 100px;
   height: 400px;
@@ -25,7 +26,9 @@
   height: 99px;
  }
 
-
+.charach {
+  float: left;
+}
 .inv_items_conteiner {
   margin-top: 50px;
   margin-left: 300px;
@@ -50,6 +53,7 @@
 .inv_item_description {
   padding: 10px;
   color: whitesmoke;
+  font-size: 14px;
 }
 .inv_table_item {
   width: 600px;

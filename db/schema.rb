@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20160418075810) do
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "health",      default: 100
+    t.integer  "damage",      default: 10
     t.integer  "endurance",   default: 50
     t.integer  "weight",      default: 0
     t.integer  "rank",        default: 0

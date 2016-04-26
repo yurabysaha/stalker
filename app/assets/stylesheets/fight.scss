@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .arena_conteiner {
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 14%;
   width: 700px;
   border: solid 1px rgba(248, 248, 255, 0.58);
@@ -37,10 +37,10 @@
 /*Тут описана сам процес бою*/
 
 .start_container {
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 0;
   width: 950px;
-  height: 500px;
+  height: 510px;
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: #999999;
   border-collapse: collapse;
@@ -133,7 +133,10 @@ label:before {
   overflow: scroll;
   overflow-x: hidden;
   height: 200px;
-  width: 600px;
+  width: 800px;
+}
+.options {
+  float: right;
 }
 
 
