@@ -8,31 +8,23 @@ class UserItemController < ApplicationController
       if @user.head != nil
         @user_head = UserItem.find(current_user.user_body.head)
       end
-
       if @user.body != nil
         @user_body = UserItem.find(current_user.user_body.body)
       end
       if @user.hand != nil
         @user_hand = UserItem.find(current_user.user_body.hand)
       end
-    if @user.leg != nil
-      @user_leg = UserItem.find(current_user.user_body.leg)
-    end
-
-=begin
-    @user_head = UserItem.find(current_user.user_body.head)
-    @user_body = UserItem.find(current_user.user_body.body)
-    @user_hand = UserItem.find(current_user.user_body.hand)
-    @user_leg = UserItem.find(current_user.user_body.leg)
-=end
-
-
+      if @user.leg != nil
+        @user_leg = UserItem.find(current_user.user_body.leg)
+      end
   end
 
   def buy
     @item = Item.find(params[:id])
      if current_user.user_profile.money >= @item.price
-       money_update
+       profile_update_money_and_weight
+       @item.amount = @item.amount - 1
+       @item.save
       @user_item = UserItem.new()
       copy_params
       if @user_item.save
@@ -58,13 +50,14 @@ class UserItemController < ApplicationController
     @user_item.strength = @item.strength
     @user_item.add_health = @item.add_health
     @user_item.add_damage = @item.add_damage
+    @user_item.add_weight = @item.add_weight
     @user_item.avatar = @item.avatar.url
     @user_item.user_id = current_user.id
   end
 
-  def money_update
+  def profile_update_money_and_weight
     user = UserProfile.find_by_user_id(current_user.id)
-    user.update_attribute(:money, user.money - @item.price)
+    user.update_attributes(:money => user.money - @item.price, :weight => user.weight + @item.add_weight)
   end
 
 end

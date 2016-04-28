@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160418075810) do
   create_table "fights", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "opponent_id"
+    t.integer  "bet",            default: 0
     t.integer  "who_move",       default: 0
     t.integer  "player1_health"
     t.integer  "player2_health"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160418075810) do
     t.integer  "amount"
     t.integer  "add_health"
     t.integer  "add_damage"
+    t.integer  "add_weight"
     t.integer  "factory_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160418075810) do
     t.integer  "strength"
     t.integer  "add_health"
     t.integer  "add_damage"
+    t.integer  "add_weight"
     t.string   "avatar"
     t.integer  "user_id"
     t.datetime "created_at",  null: false

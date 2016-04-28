@@ -17,5 +17,7 @@ class ApplicationController < ActionController::Base
     if @current_user.user_profile.on_fight != nil
       redirect_to battle_path(@current_user.user_profile.on_fight)
       end
-    end
+  end
+
+
 end

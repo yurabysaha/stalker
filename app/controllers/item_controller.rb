@@ -25,6 +25,6 @@ class ItemController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :body_type, :min_lvl, :strength, :amount, :add_health, :add_damage, :factory_id, :avatar)
+    params.require(:item).permit(:name, :description, :price, :body_type, :min_lvl, :strength, :amount, :add_health, :add_damage, :add_weight, :factory_id, :avatar)
   end
 end

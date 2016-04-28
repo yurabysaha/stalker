@@ -68,7 +68,9 @@
       <% end %>
       <% else %>
       <% if @fight.win == current_user.id %>
-              <div id="xod"> Ты победил соперника!</div>
+              <div id="xod"> Ты победил соперника!<br>
+                Выиграш : + <%= @fight.bet * 2 %> RU
+              </div>
           <% else %>
               <div id="xod">Ты проиграл сопернику!</div>
           <% end %>

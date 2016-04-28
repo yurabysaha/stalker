@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :amount
       t.integer :add_health
       t.integer :add_damage
+      t.integer :add_weight
       t.belongs_to :factory, index: true
 
       t.timestamps null: false

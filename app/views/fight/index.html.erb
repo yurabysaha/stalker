@@ -1,40 +1,41 @@
 <div class="arena_conteiner">
+  <div class="top_bar">
   <div id="timer"></div>
-  <div class="arena_button"><%= link_to 'Cоздать', fight_index_path(user_id: current_user.id), method: 'POST', class: 'mainbar_button' %>  </div>
-  <table class="arena_table">
+  <div class="arena_button"><%= link_to 'Cоздать', new_fight_path, method: 'GET', class: 'mainbar_button', remote: true %>  </div>
+    <script>
+      var timeLeft = 20;
+      var elem = document.getElementById('timer');
+
+      var timerId = setInterval(countdown, 1000);
+
+      function countdown() {
+        if (timeLeft == 0) {
+          clearTimeout(timerId);
+          displayNumbers();
+        } else {
+          elem.innerHTML ='Обновление через : ' + timeLeft;
+          timeLeft--;
+        }
+      }
+      function displayNumbers() {
+        location.reload();
+      }
+
+    </script>
+  </div>
+    <table class="arena_table">
     <tr>
       <td> <b>Сталкер 1</b> </td>
-      <td> <b></b> </td>
+      <td> <b>Ставка</b> </td>
       <td> <b>Сталкер 2</b> </td>
     </tr>
      <% @fights.each do |f| %>
         <tr>
           <td> <%= f.user.name %>[<%= f.user.user_profile.rank %>]</td>
-          <td> <b>VS</b> </td>
+          <td>  <%= f.bet %> RU</td>
           <td> <% if f.opponent != nil%> <%= f.opponent.name %>[<%= f.opponent.user_profile.rank %>] <% else %> <% if f.user.id == current_user.id %> ждем... <% else %> <%= link_to 'Вступить', fight_path(id: f.id, opponent: current_user.id), method: 'PUT' %> <% end %><% end %> </td>
         </tr>
-
   <% end %>
   </table>
 </div>
 
-<script>
-  var timeLeft = 20;
-  var elem = document.getElementById('timer');
-
-  var timerId = setInterval(countdown, 1000);
-
-  function countdown() {
-    if (timeLeft == 0) {
-      clearTimeout(timerId);
-      displayNumbers();
-    } else {
-      elem.innerHTML ='Обновление через : ' + timeLeft;
-      timeLeft--;
-    }
-  }
-  function displayNumbers() {
-    location.reload();
-  }
-
-</script>

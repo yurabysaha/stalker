@@ -9,6 +9,7 @@ class CreateUserItems < ActiveRecord::Migration
       t.integer :strength
       t.integer :add_health
       t.integer :add_damage
+      t.integer :add_weight
       t.string :avatar
       t.belongs_to :user, index: true
 

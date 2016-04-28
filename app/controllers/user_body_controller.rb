@@ -31,7 +31,6 @@ down_item. Шукаємо тіло Юзера. По параметру диви�
 =end
   def down_item
     @user_body = UserBody.find_by_user_id(current_user.id)
-
     case params[:type]
       when "head"
         @item = UserItem.where(id: current_user.user_body.head).first
