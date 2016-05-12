@@ -1,5 +1,6 @@
-<div class="inv_bg">
-  <table id="inv_table">
+<div class="container-fluid">
+  <div class="inv_bg col-md-4">
+    <table id="inv_table">
     <tr>
       <td> <% if @user_head != nil %> <%= link_to down_item_path(:type => 'head') do %> <%= image_tag @user_head.avatar %><% end %> <% end %> </td>
     </tr>
@@ -12,16 +13,15 @@
     <tr>
       <td> <% if @user_leg != nil %><%= link_to down_item_path(:type => 'leg', :item => @user_leg) do %><%= image_tag @user_leg.avatar %><% end %><% end %> </td>
     </tr>
-  </table>
-  <div class="charach">
-    Здоровья : <%= current_user.user_profile.health %><br>
-    Урон :    <%= current_user.user_profile.damage %><br>
+    </table>
+    <div class="col-md-12">
+      Здоровья : <%= current_user.user_profile.health %><br>
+      Урон :     <%= current_user.user_profile.damage %><br>
+    </div>
   </div>
-</div>
 
-
-<div class="inv_items_conteiner">
-  <% @items.each do |i| %>
+  <div class="col-md-8">
+    <% @items.each do |i| %>
       <table class="inv_table_item">
         <tr>
           <td colspan="2" class="inv_item_name"> <b> <%= i.name %></b> </td>
@@ -45,9 +45,29 @@
             Описание : <br>
             <%= i.description %> <br>
             <br>
-            <%= link_to 'Надеть', add_item_path(i.id) %>
+            <%= link_to 'Надеть', add_item_path(i.id) %> | <%= link_to 'Продать', '#', :onclick => "sold("+i.id.to_s+")" %>
+            <table id="<%= i.id %>" class='soldform col-md-12'>
+              <tr>
+                <td>
+                  Цена :
+                </td>
+                <td>
+                  <%= form_for :sold, url: sold_path(i.id), method: :post do |f| %>
+                      <%= f.number_field :price, placeholder: 'RU',  class: 'submit' %>
+                      <%= f.submit value: 'Продать', class: 'submit'%>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+            <script type="text/javascript">
+              function sold(id)
+              {
+                document.getElementById(id).style.display='table'
+              }
+            </script>
           </td>
         </tr>
       </table>
-  <% end %>
+    <% end %>
+  </div>
 </div>

@@ -2,12 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user_info_conteiner {
-  margin-top: 50px;
-  width: 95%;
-  height: 90%;
-  border: solid 1px white;
+  border: solid 1px rgba(255, 255, 255, 0.53);
 
 }
-.user_name {
+.user_name_profile {
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-style: oblique;
+  font-weight: bold;
+}
+.user_characteristic {
+  float: left;
+}
 
+.inv_bg {
+  margin-top: 0;
+}
+.table_profile {
+  border: none;
+}
+.player_td {
+  width: 300px;
+}
+.table_profile_lvl {
+  vertical-align: top;
 }

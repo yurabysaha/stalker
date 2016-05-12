@@ -1,4 +1,4 @@
-<div class="items_conteiner">
+<div class="col-md-10 col-md-offset-1">
   <% @items.each do |i| %>
  <table>
    <tr>
@@ -27,10 +27,7 @@
        <br>
        <%= link_to 'Купить', buy_path(i.id), method: 'GET' %>
      </td>
-
-
    </tr>
  </table>
-
   <% end %>
 </div>

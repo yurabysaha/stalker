@@ -19,5 +19,8 @@ class ApplicationController < ActionController::Base
       end
   end
 
-
+def update_user_info(name, value)
+  @user = UserProfile.find(current_user.id)
+  @user.update_attribute(name, value)
+end
 end

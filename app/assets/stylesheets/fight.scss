@@ -3,9 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .arena_conteiner {
-  margin-top: 40px;
-  margin-left: 14%;
-  width: 700px;
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: #999999;
   border-collapse: collapse;
@@ -18,7 +15,6 @@
   float: right;
 }
 .arena_table {
-  width: 700px;
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: whitesmoke;
   border-collapse: collapse;
@@ -34,10 +30,9 @@
   float: left;
 }
 
-/*Тут описана сам процес бою*/
+/*Тут описаний сам процес бою*/
 
 .start_container {
-  margin-top: 40px;
   margin-left: 0;
   width: 950px;
   height: 510px;
@@ -114,7 +109,6 @@ label:before {
   cursor:pointer;
   width: 150px;
 }
-
 
 .player2 {
   float: right;

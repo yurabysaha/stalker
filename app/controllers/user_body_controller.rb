@@ -61,7 +61,7 @@ private
       when 'minus'
         user.health = user.health - health
         user.damage = user.damage - damage
-  end
+    end
     user.save
   end
 end

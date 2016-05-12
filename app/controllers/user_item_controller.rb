@@ -2,7 +2,7 @@ class UserItemController < ApplicationController
   before_action :require_user, :on_fight, only: [:index, :buy]
 
   def index
-    @items = UserItem.where(user_id: current_user.id)
+    @items = UserItem.where(user_id: current_user.id).where(in_market: false)
 
     @user =  UserBody.find_by_user_id(current_user.id)
       if @user.head != nil
@@ -37,6 +37,15 @@ class UserItemController < ApplicationController
        redirect_to :back
        flash[:danger] = "У тебя недостаточно денег"
      end
+  end
+
+  def sold
+    @item = UserItem.find(params[:id])
+    @item.in_market = true
+    @item.price = params[:sold][:price]
+    @item.save
+    redirect_to :back
+    flash[:success] = "Твой товар передан на Рынок"
   end
 
 

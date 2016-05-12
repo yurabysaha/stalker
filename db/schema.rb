@@ -97,29 +97,37 @@ ActiveRecord::Schema.define(version: 20160418075810) do
     t.integer  "add_health"
     t.integer  "add_damage"
     t.integer  "add_weight"
+    t.integer  "price",       default: 0
+    t.boolean  "in_market",   default: false
     t.string   "avatar"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "user_items", ["user_id"], name: "index_user_items_on_user_id"
 
   create_table "user_profiles", force: :cascade do |t|
-    t.integer  "health",      default: 100
-    t.integer  "damage",      default: 10
-    t.integer  "endurance",   default: 50
-    t.integer  "weight",      default: 0
-    t.integer  "rank",        default: 0
-    t.integer  "reputation",  default: 0
-    t.integer  "money",       default: 1000
+    t.integer  "health",         default: 100
+    t.integer  "damage",         default: 10
+    t.integer  "endurance",      default: 50
+    t.integer  "weight",         default: 0
+    t.integer  "money",          default: 1000
     t.integer  "work_on"
     t.datetime "work_end"
     t.integer  "on_fight"
+    t.integer  "worker_lvl",     default: 0
+    t.integer  "trader_lvl",     default: 0
+    t.integer  "killer_lvl",     default: 0
+    t.integer  "q_do_work",      default: 0
+    t.integer  "q_kill_stalker", default: 0
+    t.integer  "q_sold_on",      default: 0
+    t.integer  "rank",           default: 0
+    t.integer  "reputation",     default: 0
     t.integer  "user_id"
-    t.integer  "location_id", default: 1
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "location_id",    default: 1
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "user_profiles", ["location_id"], name: "index_user_profiles_on_location_id"

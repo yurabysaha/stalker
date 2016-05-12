@@ -2,12 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .inv_bg {
-  margin-top: 50px;
   background-image: url('stalker_inventar_bg.png');
   background-repeat: no-repeat;
   background-position: left;
-  width: 292px;
-  height: 400px;
   float: left;
   border: solid 1px rgba(248, 248, 255, 0.21);
   color: #999999;
@@ -26,17 +23,6 @@
   height: 99px;
  }
 
-.charach {
-  float: left;
-}
-.inv_items_conteiner {
-  margin-top: 50px;
-  margin-left: 300px;
-  width: 600px;
-  border: solid 1px rgba(248, 248, 255, 0.58);
-  color: #999999;
-  border-collapse: collapse;
-}
 .inv_item_name {
   border-collapse: collapse;
   border: 1px #5D413A solid;
@@ -68,4 +54,8 @@
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: #999999;
   border-collapse: collapse;
+}
+.soldform {
+  display: none;
+  border: none;
 }

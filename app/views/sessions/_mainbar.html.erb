@@ -1,7 +1,8 @@
 <% if current_user %>
-<div class="mainbar">
+<div class="mainbar col-md-8 col-md-offset-2">
   <%= link_to 'Cталкер', root_path, method: 'get', class: 'mainbar_button' %>
   <%= link_to 'Локации', location_index_path, method: 'get', class: 'mainbar_button' %>
+  <%= link_to 'Рынок', market_index_path, method: 'get', class: 'mainbar_button' %>
   <%= link_to 'Арена', fight_index_path, method: 'get', class: 'mainbar_button' %>
   <%= link_to 'Рейтинг', root_path, method: 'get', class: 'mainbar_button' %>
 </div>

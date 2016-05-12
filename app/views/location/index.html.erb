@@ -1,44 +1,38 @@
-<div class="container_location">
-<div class="location_list">
-
+<div class="container-fluid location_list col-md-4">
   <%= link_to location_path(1), method: 'get', remote: true do %>
-    <div class="kordon">
-      <div class="text">
-        Кордон
-      </div>
+  <div class="kordon">
+    <div class="text">
+      Кордон
+    </div>
+  </div>
+  <%end %>
+  <%= link_to location_path(2), method: 'get', remote: true do %>
+    <div class="svalka">
     </div>
   <%end %>
-
-  <%= link_to location_path(2), method: 'get', remote: true do %>
-      <div class="svalka">
-      </div>
-  <%end %>
-
   <%= link_to location_path(3), method: 'get', remote: true do %>
-      <div class="ahroprom">
-      </div>
+    <div class="ahroprom">
+    </div>
   <%end %>
-
 </div>
-<div class="current_location">
-  <div class="current_location_name">
-  Текущая локация : <%= current_user.user_profile.location.name %>
+<div class="current_location col-md-8">
+  <div class="current_location_name ">
+    Текущая локация : <%= current_user.user_profile.location.name %>
   </div>
   <table>
     <tr>
       <td> Название  </td>
       <td> Бюджет </td>
       <td> Зарплата  </td>
-      <td>  </td>
+      <td> </td>
     </tr>
-   <% @current_location.factories.each do |f| %>
-        <tr>
-          <td> <%= link_to f.name, factory_path(f.id), method: 'get' %>  </td>
-          <td> <%= f.budget %>  </td>
-          <td> <%= f.salary %>  </td>
-          <td> <%= link_to 'Войти >>', factory_path(f.id), method: 'get' %>  </td>
-        </tr>
+    <% @current_location.factories.each do |f| %>
+    <tr>
+      <td> <%= link_to f.name, factory_path(f.id), method: 'get' %>  </td>
+      <td> <%= f.budget %>  </td>
+      <td> <%= f.salary %>  </td>
+      <td> <%= link_to 'Войти >>', factory_path(f.id), method: 'get' %>  </td>
+    </tr>
     <%end %>
   </table>
-</div>
 </div>

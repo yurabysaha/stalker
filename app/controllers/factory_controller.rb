@@ -24,7 +24,7 @@ class FactoryController < ApplicationController
       factory = Factory.find(params[:id])
 
       if user.work_end == nil or user.work_end < Time.now
-        user.update_attributes(work_on: params[:id], work_end: Time.now + 3600, money: user.money + factory.salary)
+        user.update_attributes(work_on: params[:id], work_end: Time.now + 3600, money: user.money + factory.salary, q_do_work: +1)
         factory.update_attribute(:budget, factory.budget - factory.salary)
         redirect_to '/'
       else

@@ -1,13 +1,11 @@
-<table>
-  <tr>
-    <th>
+<tr>
+    <td>
     Ставка :
-    </th>
-    <th>
+    </td>
+    <td>
       <%= form_for :fight, url: fight_index_path, method: :post do |f| %>
       <%= f.number_field :bet, placeholder: 'RU',  class: 'submit' %>
       <%= f.submit value: 'Создать', class: 'submit'%>
       <% end %>
-    </th>
-  </tr>
-</table>
+    </td>
+</tr>

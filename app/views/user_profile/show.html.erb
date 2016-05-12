@@ -1,9 +1,49 @@
-<div class="user_info_conteiner">
-  <div class="user_name">
+<div class="user_info_conteiner col-md-12">
+  <table class="table_profile">
+    <tr>
+  <div class="user_name_profile">
     <%= @user.name %>
   </div>
-  <div class="user_characteristic">
-   Здоровя : <%= @user.user_profile.health %> <br>
-   Выносливость : <%= @user.user_profile.endurance %> <br>
-  </div>
+    </tr>
+    <tr>
+      <td class="player_td">
+        <div class="player1">
+          <div class="inv_bg">
+            <table id="inv_table">
+              <tr>
+                <td> <% if @user.user_body.head != nil %> <%= image_tag avatar(@user.user_body.head) %><% end %>  </td>
+              </tr>
+              <tr>
+                <td> <% if @user.user_body.body != nil %> <%= image_tag avatar(@user.user_body.body) %><% end %>  </td>
+              </tr>
+              <tr>
+                <td> <% if @user.user_body.hand != nil %> <%= image_tag avatar(@user.user_body.hand) %><% end %>  </td>
+              </tr>
+              <tr>
+                <td> <% if @user.user_body.leg != nil %> <%= image_tag avatar(@user.user_body.leg) %><% end %>  </td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+      </td>
+      <td class="user_characteristic">
+        Ранг :         <%= @user.user_profile.rank %><br>
+        Репутация :    <%= @user.user_profile.reputation %><br><br>
+        Здоровя :      <%= @user.user_profile.health %> <br>
+        Выносливость : <%= @user.user_profile.endurance %><br>
+        Урон :         <%= @user.user_profile.damage %><br><br>
+        Деньги :       <%= @user.user_profile.money %> RU<br>
+        Масса :        <%= @user.user_profile.weight %> кг<br><br>
+      </td>
+      <td class="table_profile_lvl">
+        Работяга :        <%= @user.user_profile.worker_lvl %><br>
+        Торговец :        <%= @user.user_profile.trader_lvl %><br>
+        Убийца :          <%= @user.user_profile.killer_lvl %><br><br><br>
+        Выполнено работ : <%= @user.user_profile.q_do_work %><br>
+        Продано на :      <%= @user.user_profile.q_sold_on %> RU<br>
+        Убито сталкеров : <%= @user.user_profile.q_kill_stalker %><br>
+      </td>
+    </tr>
+  </table>
 </div>

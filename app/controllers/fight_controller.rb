@@ -5,6 +5,7 @@ class FightController < ApplicationController
     @fights = Fight.all.order(created_at: :desc)
   end
 
+#Тут викликається форма для ставки
   def new
     respond_to do |format|
       format.js {}
@@ -168,7 +169,7 @@ end
   end
 def prize
     winner = UserProfile.where(user_id: @fight.win).first
-    winner.update_attribute(:money, winner.money + @fight.bet * 2)
+    winner.update_attributes(money: winner.money + @fight.bet * 2, q_kill_stalker: +1, reputation: +100)
 end
   def fight_params
     params.require(:fight).permit(:user_id, :opponent_id, :bet)

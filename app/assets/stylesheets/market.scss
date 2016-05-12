@@ -1,0 +1,59 @@
+// Place all the styles related to the market controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.open {
+  display: none;
+}
+.mbutton{
+  text-align: center;
+  margin-top: 14px;
+  padding-top: 5px;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  -webkit-box-shadow: 0 3px 0 #1e1e1e, 0 -1px #1e1e1e inset;
+  -moz-box-shadow: 0 3px 0 #1e1e1e, 0 -1px #1e1e1e inset;
+  box-shadow: 0 3px 0 #1e1e1e, 0 -1px #1e1e1e inset;
+  background: #1e1e1e;
+  color: #fffceb;
+  border:none;
+  outline:none;
+  display: inline-block;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  cursor:pointer;
+  height: 30px;
+
+}
+.sortbutton{
+  text-align: left;
+  margin-top: 6px;
+  padding-top: 5px;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  -webkit-box-shadow: 0 3px 0 #1e1e1e, 0 -1px #1e1e1e inset;
+  -moz-box-shadow: 0 3px 0 #1e1e1e, 0 -1px #1e1e1e inset;
+  box-shadow: 0 3px 0 #1e1e1e, 0 -1px #1e1e1e inset;
+  background: #1e1e1e;
+  color: #fffceb;
+  border:none;
+  outline:none;
+  display: inline-block;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  cursor:pointer;
+  height: 30px;
+
+}
+.arrow {
+  text-align: left;
+  height: 15px;
+}
+.arrowgroup {
+  margin-top: -9px;
+}
+

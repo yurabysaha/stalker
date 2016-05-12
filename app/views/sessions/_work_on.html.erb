@@ -1,6 +1,5 @@
-
 <% if current_user.user_profile.work_end != nil && current_user.user_profile.work_end > Time.now  %>
-    Вы работаете на <%= link_to current_user.user_profile.work_on_factory.name, factory_path(current_user.user_profile.work_on_factory.id) %>. Работа закончится <%= current_user.user_profile.work_end %>
+Вы работаете на <%= link_to current_user.user_profile.work_on_factory.name, factory_path(current_user.user_profile.work_on_factory.id) %>. Работа закончится <%= current_user.user_profile.work_end %>
  <% else %>
-    Вы нигде не работаете
+Вы нигде не работаете
 <% end %>

@@ -1,24 +1,33 @@
 <% if current_user %>
-    <div class="user_name"><%= link_to current_user.name, user_profile_path(current_user.id) %> </div>
-<div class="user_profile">
-  <div class="user_char">
-    Ранг : <%= current_user.user_profile.rank %><br>
-    Репутация : <%= current_user.user_profile.reputation %><br>
-    <br>
-    Здоровья : <%= current_user.user_profile.health %><br>
-    Выносливость : <%= current_user.user_profile.endurance %><br>
-    Урон : <%= current_user.user_profile.damage %><br>
+    <div class="row user_name col-md-1 col-md-offset-4"><%= link_to current_user.name, user_profile_path(current_user.id) %> </div>
+<div class="row">
+ <div class="user_profile col-md-9">
+  <div class="row">
+    <div class="user_char col-md-6">
+      Ранг : <%= current_user.user_profile.rank %><br>
+      Репутация : <%= current_user.user_profile.reputation %><br>
+      <br>
+      Здоровья : <%= current_user.user_profile.health %><br>
+      Выносливость : <%= current_user.user_profile.endurance %><br>
+      Урон : <%= current_user.user_profile.damage %><br>
+    </div>
+    <div class="user_char col-md-6">
+      Деньги : <%= current_user.user_profile.money %> RU<br>
+      Масса : <%= current_user.user_profile.weight %> кг<br>
+      <br>
+      <br>
+      Роботяга : <%= current_user.user_profile.worker_lvl %><br>
+      Убийца :   <%= current_user.user_profile.killer_lvl %><br>
+      Торговец : <%= current_user.user_profile.trader_lvl %><br>
+    </div>
   </div>
-  <div class="user_char1">
-    Деньги : <%= current_user.user_profile.money %> RU<br>
-    Масса : <%= current_user.user_profile.weight %> кг<br>
-  </div>
-  <div class="work_on">
-    <%= render 'sessions/work_on' %>
+   <div class="work_on col-md-12">
+      <%= render 'sessions/work_on' %>
+   </div>
+ </div>
+  <div class="services col-md-3">
+    <%= link_to user_item_index_path, method: 'GET', class: 'services_button' do %> <i class="glyphicon glyphicon-briefcase"> </i> Инвентарь <% end %><br>
+    <%= link_to edit_user_path(current_user), class: 'services_button' do %> <i class="glyphicon glyphicon-cog"> </i> Настройки <% end %>
   </div>
 </div>
-<div class="services">
-  <%= link_to 'Инвентарь', user_item_index_path, method: 'GET', class: 'services_button' %><br>
-</div>
-
 <% end %>

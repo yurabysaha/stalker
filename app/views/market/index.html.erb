@@ -1,0 +1,96 @@
+<div class="row col-md-12">
+  <div class="col-md-5 form-group">
+    <%= link_to 'Голова', market_index_path(type: 'head'), class: "mbutton col-md-3" %>
+    <%= link_to 'Руки', market_index_path(type: 'hand'), class: "mbutton col-md-3" %>
+    <%= link_to 'Тело', market_index_path(type: 'body'), class: "mbutton col-md-3" %>
+    <%= link_to 'Ноги', market_index_path(type: 'leg'), class: "mbutton col-md-3" %>
+  </div>
+  <div class="col-md-7">
+  <form class="navbar-form navbar-left" role="search" method="get" action="<%=market_index_path%>" >
+    <div class="form-group">
+      <input type="text" name="item_name" class="form-control" placeholder="Название предмета">
+    </div>
+    <button type="submit" class="submit">Искать</button>
+  </form>
+</div>
+</div>
+<div class="row col-md-12">
+  <div class="col-md-3">Товаров на рынке <%= @items.count %> </div>
+  <div class="col-md-2">Cделать сортировку по :</div>
+  <div class="col-md-7 form-group">
+    <div class="row sortbutton col-md-3">
+     <span class="col-md-11 row">Названию </span>
+        <div class="col-md-1 arrowgroup">
+          <%= link_to '⇑', market_index_path(name: 'asc'), class: "arrow" %>
+          <%= link_to '⇓', market_index_path(name: 'desc'), class: "arrow" %>
+        </div>
+    </div>
+    <div class="row sortbutton col-md-3">
+      <span class="col-md-11 row">Цене</span>
+      <div class="col-md-1 arrowgroup">
+        <%= link_to '⇑', market_index_path(price: 'asc'), class: "arrow" %>
+        <%= link_to '⇓', market_index_path(price: 'desc'), class: "arrow" %>
+      </div>
+    </div>
+    <div class="row sortbutton col-md-4">
+      <span class="col-md-11 row">Прочности</span>
+      <div class="col-md-1 arrowgroup">
+        <%= link_to '⇑', market_index_path(strength: 'asc'), class: "arrow" %>
+        <%= link_to '⇓', market_index_path(strength: 'desc'), class: "arrow" %>
+      </div>
+    </div>
+    <div class="row sortbutton col-md-3">
+      <span class="col-md-11 row">Рангу</span>
+      <div class="col-md-1 arrowgroup">
+        <%= link_to '⇑', market_index_path(min_lvl: 'asc'), class: "arrow" %>
+        <%= link_to '⇓', market_index_path(min_lvl: 'desc'), class: "arrow" %>
+      </div>
+    </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-9">
+    <div class="col-md-12">
+      <% @items.each do |i| %>
+          <table class="inv_table_item">
+            <tr>
+              <td colspan="2" class="inv_item_name"> <b> <%= i.name %></b> </td>
+            </tr>
+            <tr>
+              <td width="110" class="inv_item_picture" valign="top" align="center"><%= image_tag i.avatar %></td>
+              <td valign="top" class="inv_item_description">
+                <div class="col-md-6"> Цена : <%= i.price %> RU </div><div class="col-md-6"> Продавец : <%= link_to i.user.name, user_profile_path(i.user.id) %> </div><br>
+                <br>
+                Минимальний ранг : <%= i.min_lvl %> <br>
+                Прочность : <%= i.strength %> <br>
+                Вес : <%= i.add_weight %> кг <br>
+                <br>
+                <% if i.add_health != 0 %>
+                    Броня : + <%= i.add_health %>
+                <% end %>
+                <% if i.add_damage != 0 %>
+                    Урон : + <%= i.add_damage %>
+                <% end %>
+                <br>
+                <br>
+                Описание : <br>
+                <%= i.description %> <br>
+                <br>
+                <%= link_to 'Купить', mbuy_path(i.id) %>
+              </td>
+            </tr>
+          </table>
+          <% end %>
+    </div>
+  </div>
+  </div>
+
+<script type="text/javascript">
+  function opening(id)
+  {
+    document.getElementById(id).style.display='inline'
+  }
+</script>
