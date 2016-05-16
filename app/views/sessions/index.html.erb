@@ -3,7 +3,7 @@
 <div class="row">
  <div class="user_profile col-md-9">
   <div class="row">
-    <div class="user_char col-md-6">
+    <div class=" col-md-6">
       Ранг : <%= current_user.user_profile.rank %><br>
       Репутация : <%= current_user.user_profile.reputation %><br>
       <br>
@@ -11,7 +11,7 @@
       Выносливость : <%= current_user.user_profile.endurance %><br>
       Урон : <%= current_user.user_profile.damage %><br>
     </div>
-    <div class="user_char col-md-6">
+    <div class=" col-md-6">
       Деньги : <%= current_user.user_profile.money %> RU<br>
       Масса : <%= current_user.user_profile.weight %> кг<br>
       <br>
@@ -21,8 +21,11 @@
       Торговец : <%= current_user.user_profile.trader_lvl %><br>
     </div>
   </div>
-   <div class="work_on col-md-12">
+   <div class="col-md-13">
       <%= render 'sessions/work_on' %>
+   </div>
+   <div class="user_item col-md-13">
+     <%= render 'sessions/user_item' %>
    </div>
  </div>
   <div class="services col-md-3">

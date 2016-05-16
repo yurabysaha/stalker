@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td>
+      <% if current_user.user_body.head != nil %> <%= image_tag avatar(current_user.user_body.head) %><% end %>
+    </td>
+    <td>
+      <% if current_user.user_body.body != nil %> <%= image_tag avatar(current_user.user_body.body) %><% end %>
+    </td>
+    <td>
+      <% if current_user.user_body.hand != nil %> <%= image_tag avatar(current_user.user_body.hand) %><% end %>
+    </td>
+    <td>
+      <% if current_user.user_body.leg != nil %> <%= image_tag avatar(current_user.user_body.leg) %><% end %>
+    </td>
+  </tr>
+</table>

@@ -20,18 +20,28 @@
   color: white;
 }
 
-
 .user_profile {
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: whitesmoke;
   border-collapse: collapse;
 }
-.user_char {
+/*.user_char {
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: whitesmoke;
   border-collapse: collapse;
-  }
-
+  }*/
+.user_item table {
+  height: 100px;
+  width: 400px;
+  margin-top: 15px;
+}
+.user_item table td {
+  width: 100px;
+  border: solid 1px rgba(248, 248, 255, 0.38);
+  color: rgba(245, 245, 245, 0.55);
+  border-collapse: collapse;
+  background-color: #0f0f0f;
+}
 .services {
   border: solid 1px rgba(248, 248, 255, 0.58);
   color: whitesmoke;

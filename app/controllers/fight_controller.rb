@@ -126,16 +126,16 @@ end
 
   def who_win
     if @fight.player1_hit == @fight.player2_move
-       @fight.player2_health = @fight.player2_health - @fight.user.user_profile.damage
+       @fight.player2_health -= @fight.user.user_profile.damage
        talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player1.name + ' метким вистрелом в грудь ранил противника и нанес ' + @fight.user.user_profile.damage.to_s + ' урона <br>'
        @fight.description = @fight.description + talk
     end
     if @fight.player2_hit == @fight.player1_move
-       @fight.player1_health = @fight.player1_health - @fight.opponent.user_profile.damage
+       @fight.player1_health -= @fight.opponent.user_profile.damage
        talk = 'Раунд ' + @fight.raund.to_s + ': ' + @player2.name + ' метким вистрелом в грудь ранил противника и нанес ' + @fight.opponent.user_profile.damage.to_s + ' урона <br>'
        @fight.description = @fight.description + talk
     end
-       @fight.raund = @fight.raund + 1
+       @fight.raund += 1
        @fight.player1_hit, @fight.player2_hit, @fight.player1_move, @fight.player2_move = nil
     game_end
     @fight.save
@@ -162,8 +162,8 @@ end
   def bet_from_user
     user1 = UserProfile.find(@fight.user.id)
     user2 = UserProfile.find(@fight.opponent.id)
-    user1.money = user1.money - @fight.bet
-    user2.money = user2.money - @fight.bet
+    user1.money -= @fight.bet
+    user2.money -= @fight.bet
     user1.save
     user2.save
   end

@@ -56,11 +56,11 @@ private
     user = UserProfile.where(user_id: current_user.id).first
     case action
       when 'plus'
-        user.health = user.health + health
-        user.damage = user.damage + damage
+        user.health += health
+        user.damage += damage
       when 'minus'
-        user.health = user.health - health
-        user.damage = user.damage - damage
+        user.health -= health
+        user.damage -= damage
     end
     user.save
   end
