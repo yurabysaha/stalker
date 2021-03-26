@@ -1,8 +1,8 @@
 development:
-   AWS_ACCESS_KEY_ID: AKIAJXEM5TEGB3D4AJ6Q
-   AWS_SECRET_ACCESS_KEY: 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
+   AWS_ACCESS_KEY_ID: 
+   AWS_SECRET_ACCESS_KEY:
 
 production:
-   bucket: stalkerzona
-   access_key_id: AKIAJXEM5TEGB3D4AJ6Q
-   secret_access_key: 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
+   bucket:
+   access_key_id: 
+   secret_access_key:
